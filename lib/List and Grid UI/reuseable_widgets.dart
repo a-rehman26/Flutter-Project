@@ -71,3 +71,65 @@ class ListContainer extends StatelessWidget {
     );
   }
 }
+
+class GridContainer extends StatelessWidget {
+  const GridContainer({
+    super.key,
+    required this.pImage,
+    required this.pName,
+    required this.pCategory,
+    required this.pPrice,
+    required this.pAvail,
+  });
+
+  final String pImage;
+  final String pName;
+  final String pCategory;
+  final String pPrice;
+  final String pAvail;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      height: 260,
+      padding: EdgeInsets.symmetric(horizontal: 6,vertical: 6),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade600,
+                spreadRadius: 1,
+                blurRadius: 8
+            )
+          ],
+          color: Colors.white
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+
+          // Image Container
+          Container(
+            width: 180,
+            height: 150,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: Colors.grey,
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(pImage))
+            ),
+          ),
+
+          Text(pName),
+          Text(pCategory),
+          Text(pPrice),
+          Text(pAvail)
+
+        ],
+      ),
+    );
+  }
+}
+
