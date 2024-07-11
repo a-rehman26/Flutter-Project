@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tts09b/API/desc_data_fetch.dart';
 import 'package:tts09b/List%20and%20Grid%20UI/grid_screen.dart';
 import 'package:tts09b/main_navbar.dart';
+import 'package:tts09b/register_screen.dart';
+import 'package:tts09b/splash_screen.dart';
 
 import 'API/fetch_data_screen.dart';
 import 'List and Grid UI/list_screen.dart';
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FetchMovieData(),
+      home: RegisterScreen(),
     );
   }
 }
