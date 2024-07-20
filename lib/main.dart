@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tts09b/API/desc_data_fetch.dart';
 import 'package:tts09b/List%20and%20Grid%20UI/grid_screen.dart';
+import 'package:tts09b/firebase_options.dart';
 import 'package:tts09b/main_navbar.dart';
 import 'package:tts09b/register_screen.dart';
 import 'package:tts09b/splash_screen.dart';
@@ -8,7 +10,11 @@ import 'package:tts09b/splash_screen.dart';
 import 'API/fetch_data_screen.dart';
 import 'List and Grid UI/list_screen.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MyApp());
 }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930267087384",
+    "project_id": "tts09b",
+    "storage_bucket": "tts09b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930267087384:android:155a47ab82d7cf48d6f96d",
+        "android_client_info": {
+          "package_name": "com.example.tts09b"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl5iI3EisvHfQLUyriaIVoLOGtQu8s9zE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

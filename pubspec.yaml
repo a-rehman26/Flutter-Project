@@ -38,6 +38,8 @@ dependencies:
   http:
   carousel_slider:
   flutter_rating_bar:
+  firebase_core: ^2.24.2
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:

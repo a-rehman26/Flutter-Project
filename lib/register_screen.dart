@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,6 +17,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
 
+  void userRegister()async{
+    try{
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.text, password: password.text);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Register Successful")));
+    }
+    on FirebaseAuthException catch(ex){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(ex.code.toString())));
+    }
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -32,13 +43,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
 
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
         child: Form(
           key: formKey,
           child: Column(
             children: [
 
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
 
@@ -62,7 +73,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
@@ -82,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
@@ -93,32 +104,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   if(val == null || val.isEmpty || val == " "){
                     return "Password is Required";
                   }
-                  if(val.length < 8){
-                    return "Password Length must be greater than 8 digits";
-                  }
+                  // if(val.length < 8){
+                  //   return "Password Length must be greater than 8 digits";
+                  // }
                 },
                 obscuringCharacter: "-",
                 decoration: InputDecoration(
-                  label: Text("Enter Your Password"),
-                  border: OutlineInputBorder(),
+                  label: const Text("Enter Your Password"),
+                  border: const OutlineInputBorder(),
                   hintText: "J**9##",
-                  prefixIcon: Icon(Icons.key),
+                  prefixIcon: const Icon(Icons.key),
                   suffix: IconButton(onPressed: (){
                     setState(() {
                       isHide = ! isHide ;
                     });
-                  }, icon: isHide ?  Icon(Icons.remove_red_eye) : Icon(Icons.panorama_fish_eye))
+                  }, icon: isHide ?  const Icon(Icons.remove_red_eye) : const Icon(Icons.panorama_fish_eye))
                   // prefix: Icon(Icons.person)
                 ),
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
 
               ElevatedButton(onPressed: (){
 
                 if(formKey.currentState!.validate()){
+
+
+                  userRegister();
+
                   debugPrint(name.text);
                   debugPrint(email.text);
                   debugPrint(password.text);
@@ -128,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 }
 
 
-              }, child: Text("Register"))
+              }, child: const Text("Register"))
 
             ],
           ),
